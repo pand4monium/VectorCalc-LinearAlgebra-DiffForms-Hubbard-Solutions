@@ -1,0 +1,15 @@
+# ignores files produced when generating pdf
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
+*.gz
+*.out
+*.synctex.gz
+*.synctex(busy)
+*.thm
+*.toc
+
+# ignores all test files
+test*
+.vscode
