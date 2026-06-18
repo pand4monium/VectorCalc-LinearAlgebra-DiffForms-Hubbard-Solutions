@@ -1,15 +1,30 @@
 \section{Quantifiers and Negation}
 
-\bx{
+\bx{ % 0.2.1
     Negate the following statements: \ea{
         \item Every prime number such that if you divide it by 4 you have a remainder of 1 is the sum of two squares.
         \item For all $x \in \mathbb R$ and for all $\epsilon > 0$, there exists $\delta > 0$ such that for all $y \in \mathbb R$, if $|y -x| < \delta$, then $|y^2 - x^2| < \epsilon$.
         \item For all $\epsilon > 0$, there exists $\delta > 0$ such that for all $x, y \in \mathbb R$, if $|y - x| < \delta$, then $|y^2 - x^2| < \epsilon$.
     }
-    \solb{
+    \sol{
         \ea{
         \item There exists a prime number in the form of $4n + 1$, for $n \in \mathbb N_0$ that cannot be expressed as the sum of two squares.
         \item There exists $x \in \mathbb R$ and $\epsilon > 0$ such that for all $\delta > 0$, there exists $ y \in \mathbb R$ with $|y-x| < \delta$ but $|y^2 - x^2| \ge \epsilon$.
         \item There exists $\epsilon > 0$ such that for all $\delta > 0$, there exists $x, y \in \mathbb R$ with $|y-x| < \delta$ but $|y^2 - x^2| \ge \epsilon$.
     }}
+}
+
+\bx{ % 0.2.2
+    Explain why one of these statements is true and the other is false: \begin{align*}
+        (\forall \text{ man } M)(\exists \text{ woman } W) \; &| \; W \text{ is the mother of M} \\ 
+        (\exists \text{ woman } W)(\forall \text{ man } M) \; &| \; W \text{ is the mother of M}
+    \end{align*}
+    \sol{
+        The difference between the two statements lies in the quantifier. Obviously the first statement is true while the second is false.
+
+
+        The first statement states that for every man, we can find a woman that is the man's father. This is inherently true as every man must have a mother.
+
+        On the other hand, the second statement states that we can find a women that is the mother of every man, which is obviously not possible.
+    }
 }
