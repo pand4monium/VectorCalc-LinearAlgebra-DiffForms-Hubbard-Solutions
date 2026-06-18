@@ -1,8 +1,9 @@
 \usepackage[margin=1in]{geometry}
 
 \usepackage{amsmath} % enable align environments
-\usepackage{enumitem} % enable enumeration
+\usepackage[inline]{enumitem} % enable enumeration
 \usepackage{fancyhdr}
+\PassOptionsToPackage{hyphens}{url}\usepackage{hyperref} % allow for URL wrapping
 \usepackage[standard]{ntheorem}
 
 
@@ -21,7 +22,6 @@
 % Environment Shortcuts
 \newcommand{\bx}[1]{\begin{exercise} #1 \end{exercise}}
 \newcommand{\sol}[1]{\begin{solution} #1 \end{solution}}
-\newcommand{\solb}[1]{\begin{solutionb} #1 \end{solutionb}}
 \newcommand{\ea}[1]{\begin{enumerate}[label=\alph*.] #1 \end{enumerate}}
-\newcommand{\eah}[1]{\begin{enumerate*}[label=\alph*.] #1 \end{enumerate*}}
+\newcommand{\eah}[1]{\begin{center} \begin{enumerate*}[label=\alph*., itemjoin=\quad] #1 \end{enumerate*} \end{center}}
 \newcommand{\er}[1]{\begin{enumerate}[label=(\roman*)] #1 \end{enumerate}}

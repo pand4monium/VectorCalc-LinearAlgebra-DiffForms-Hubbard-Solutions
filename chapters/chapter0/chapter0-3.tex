@@ -1,5 +1,21 @@
 \section{Set Theory}
  
 \bx{  % 0.3.1
+    Let $E$ be a set, with subsets $A \subset E$ and $B \subset E$, and let $*$ be the operation $A * B = (E - A) \cap (E - B)$. Express the sets \eah{
+        \item $A \cup B$
+        \item $A \cap B$ 
+        \item $E - A$
+    } using $A$, $B$ and $*$.
 
+    \sol{
+        Before solving this problem, consider the special case of the operator $*$: \[
+        X * X = (E-X)\cap(E-X) = X^c \cap X^c = X^c\]
+        \ea{
+            \item We can first simpify the operator with $A *B = A^c \cap B^c = (A \cup B)^c$. Using the special case, we get  \[
+            (A * B) * (A*B) = (A \cup B)^c * (A\cup B)^c = A \cup B\]
+            \item Working backwards, we get \[
+            A \cap B = (A^c \cup B^c )^c =((A*A) \cup (B*B))^c = (A*A)*(B*B) \]
+            \item This case is the equivilant to the special case above, hencec $E - A = A^c =  A*A$.
+        }
+    }
 }
