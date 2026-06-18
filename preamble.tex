@@ -9,13 +9,18 @@
 % Exercise Theorem Environment
 
 \theorembodyfont{\upshape} % No italics in body font
+\theoremstyle{plain}
 \newtheorem{exercise}{Exercise}[section]
 \newtheorem{tip}{Tip}[section]
 \newtheorem{identity}{Identity}[section]
 \newtheorem*{solution}{SOLUTION}
 
+\theoremstyle{break}
+\newtheorem*{solutionb}{SOLUTION}
+
 % Environment Shortcuts
 \newcommand{\bx}[1]{\begin{exercise} #1 \end{exercise}}
 \newcommand{\sol}[1]{\begin{solution} #1 \end{solution}}
+\newcommand{\solb}[1]{\begin{solutionb} #1 \end{solutionb}}
 \newcommand{\ea}[1]{\begin{enumerate}[label=\alph*.] #1 \end{enumerate}}
 \newcommand{\er}[1]{\begin{enumerate}[label=(\roman*)] #1 \end{enumerate}}
