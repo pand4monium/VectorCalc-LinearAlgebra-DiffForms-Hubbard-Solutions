@@ -1,10 +1,12 @@
 \usepackage[margin=1in]{geometry}
 
+\usepackage{array}
 \usepackage{amsmath} % enable align environments
 \usepackage[inline]{enumitem} % enable enumeration
 \usepackage{fancyhdr}
 \PassOptionsToPackage{hyphens}{url}\usepackage{hyperref} % allow for URL wrapping
 \usepackage[standard]{ntheorem}
+\usepackage{tabularx}
 
 
 % Exercise Theorem Environment
@@ -23,5 +25,22 @@
 \newcommand{\bx}[1]{\begin{exercise} #1 \end{exercise}}
 \newcommand{\sol}[1]{\begin{solution} #1 \end{solution}}
 \newcommand{\ea}[1]{\begin{enumerate}[label=\alph*.] #1 \end{enumerate}}
-\newcommand{\eah}[1]{\begin{center} \begin{enumerate*}[label=\alph*., itemjoin=\quad] #1 \end{enumerate*} \end{center}}
+\newcommand{\eah}[1]{\begin{center} \begin{enumerate*}[label=\alph*., itemjoin=\qquad] #1 \end{enumerate*} \end{center}}
 \newcommand{\er}[1]{\begin{enumerate}[label=(\roman*)] #1 \end{enumerate}}
+
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+
+\newcounter{eagitem}
+
+\newcommand{\eaglabel}{\stepcounter{eagitem}\alph{eagitem}.\hspace{0.5em}}
+
+\newcommand{\eag}[2]{%
+\begingroup
+\setcounter{eagitem}{0}%
+\begin{center}
+\begin{tabularx}{\linewidth}{*{#1}{C}}
+#2
+\end{tabularx}
+\end{center}
+\endgroup
+}
