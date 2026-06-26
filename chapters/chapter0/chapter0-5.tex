@@ -100,5 +100,34 @@
 }
 
 \bx{ % 0.5.5
-    Show that if a series $\sum_{k=1}^\infty a_n$ is absolutely convergent, then any rearrangement of the series is still convergent and converges to the same limit. \textit{Hint: } For any $\epsilon > 0$, there exists $N$ such that $\sum_{n=N+1}^\infty < \epsilon$. For any rearrangement $\sum_{k=1}^\infty b_n$ of the series, there exists $M$ such that all of $a_1, \dots, a_N$ appear among $b_1, \dots, b_M$. Show that $\left|\sum_{n=1}^N a_n - \sum_{n=1}^M b_n \right| < \epsilon$.
+    Show that if a series $\sum_{n=1}^\infty a_n$ is absolutely convergent, then any rearrangement of the series is still convergent and converges to the same limit. \textit{Hint: } For any $\epsilon > 0$, there exists $N$ such that $\sum_{n=N+1}^\infty < \epsilon$. For any rearrangement $\sum_{k=1}^\infty b_n$ of the series, there exists $M$ such that all of $a_1, \dots, a_N$ appear among $b_1, \dots, b_M$. Show that $\left|\sum_{n=1}^N a_n - \sum_{n=1}^M b_n \right| < \epsilon$.
+    \sol{
+        Let $(b_n)$ be a rearrangement of $(a_n)$ and $\sum_{n=1}^\infty  = s$ converges absolutely, meaning $\sum_{n=1}^\infty a_n$ converges. We will first show that $(b_n)$ converges absolutely.
+
+        For $\epsilon >0$ we can choose $N > 0$ large enough such that 
+        \[
+        s - \sum_{n=1}^N |a_n| < \epsilon \implies \sum_{n=N+1}^\infty |a_n| < \epsilon
+        \]
+        Since $N$ is finite, we can find $M>0$ such that every term from $a_1, a_2, \dots , a_N$ appears in $b_1, b_2, \dots, b_M$. Formally, we will write $a_k \in \{b_n : n \in\mathbb N, n \le M\}$ for all $k \le N$. Hence,
+        \begin{align*}
+        \sum_{n=1}^M b_n &= \sum_{a_k\in\{b_1, \dots, b_M\}, k \le N} a_k + \sum_{a_k\in\{b_1, \dots, b_M\}, k > N} a_k \\
+        &= \sum_{n=1}^N a_n + \sum_{a_k\in\{b_1, \dots, b_M\}, k > N} a_n
+        \end{align*}
+        Therefore
+        \begin{align*}
+            \left|\sum_{n=1}^M b_n - \sum_{n=1}^N a_n\right| &= \left| \sum_{a_k\in\{b_1, \dots, b_M\}, k > N} a_k \right| \le \sum_{a_k\in\{b_1, \dots, b_M\}, k > N} |a_k| \le \sum_{n=N+1}^\infty |a_n| < \epsilon
+        \end{align*}
+        Let 
+        \[
+        s_N = \sum_{n=1}^N a_n, \quad t_M = \sum_{n=1}^M b_n
+        \]
+        Since $s_N \rightarrow s$, we get $|s-s_N| < \epsilon$, giving us 
+        \[
+        |t_M - s| \le |t_M - s_N| + |s_N - s| < \epsilon + \epsilon = \epsilon_0
+        \] 
+        Thus for $M > 0$ large enough, we get 
+        \[
+        \lim_{m \rightarrow \infty} t_m = s
+        \]
+    }
 }
