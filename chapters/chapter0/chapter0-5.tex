@@ -1,7 +1,10 @@
 \section{Real Numbers}
 
 \bx{ % 0.5.1
-    Show that if $p$ is a polynomial of odd degree with real coefficients, then thereis a real numbr $c$ such that $p(c) = 0$
+    Show that if $p$ is a polynomial of odd degree with real coefficients, then thereis a real number $c$ such that $p(c) = 0$.
+    \sol{
+        We will begin by finding two values to contruct the requirements for Intermediate Value Theorem. Firstly, let $p(x) = a_n x^n + a_{n-1} x^{n-1} + \cdots + a_0$. Without loss of generality, suppose $a_n > 0$, then $\lim_{x\rightarrow -\infty} p(x) = -\infty $ and $\lim_{x \rightarrow \infty} p(x) = \infty$; since $n$ is odd. Hence, we can find $N > 0$ large enough such that $p(-N) < 0$ and $p(N) > 0$. By Intermediate Value Theorem, we can find $c \in (-N, N)$ such that $p(c) = 0$.
+    }
 }
 
 \bx{ % 0.5.2
@@ -13,12 +16,32 @@
             \end{cases} 
             \text{ is not continuous.}
             \]
-        \item Show that $f$ satisfies the conclusion of the intermediate value theorem: If $f(x_1)=a_1$ and $f(x_2) = a_2$, thn for any number $a$ between $a_1$ and $a_2$, there exists a number $x$ between $x_1$ and $x_2$ such that $f(x) = a$.
+        \item Show that $f$ satisfies the conclusion of the intermediate value theorem: If $f(x_1)=a_1$ and $f(x_2) = a_2$, then for any number $a$ between $a_1$ and $a_2$, there exists a number $x$ between $x_1$ and $x_2$ such that $f(x) = a$.
     }
+    \sol{\ea{
+        \item Intuitively, the discontinuity must occur at $x = 0$ since $1/x$ has a discontinuity at the same point. To prove this, we must find a subsequences to show that the limit does not agree at zero. Consider \[
+        x_n = \frac1{\frac{\pi}{2} + 2\pi n} \rightarrow 0 \implies f(x_n) = \sin\left(\frac1{x_n} \right) = \sin\left(\frac{\pi}2 + 2\pi n \right) = 1 \ne f(0)\]
+        Since $\lim_{x\rightarrow 0} f(x) \ne f(0)$, $f$ is not continuous.
+        \item Since $f$ is continuous on $\mathbb R \setminus \{0\}$, if both $x_1, x_2 <0$ or $x_1, x_2 > 0$, then Intermediate Value Theorem applies as it will be continuous on the interval $[x_1, x_2]$ or $[x_2, x_1]$. Hence we just have to prove this for the cases where $x_1x_2 < 0$.
+        
+        Without loss of generality, suppose $x_1 < 0 < x_2$. For $\epsilon > 0$, we can find $N > 0$ big enough such that \[
+        \frac{(4N+3)\pi}2 > \frac{(4N+1)\pi}2 > 1/\epsilon\]Let $\epsilon < \min \{|x_1|, |x_2|\}$. Then we can find an interval $\left[\frac2{(4N+3)\pi}, \frac2{(4N+1)\pi}\right] \subseteq [x_1, x_2]$. Since \[
+        f\left(\frac2{(4N+1)\pi}\right) = -1 , \quad f\left(\frac2{(4N+3)\pi}\right)= 1\] Intermediate Value Theorem applies, thus we can find $f(x) = a$ for $a \in [a_1, a_2] \subseteq [-1, 1]$; since the range of $\sin(1/x)$ is $[-1, 1]$.
+    }}
 }
 
 \bx{ % 0.5.3
     Suppose $a \le b$. Show that if $f \ : \ [a,b] \rightarrow [a,b]$ is continuous, there exists $c \in [a, b]$ with $f(c) = c$.
+    \sol{
+        We consider the function $g(x) = f(x) - x$. Then 
+        \[
+        f(x) \in [a,b] \implies a \le f(x) \le b
+        \] so \[
+        f(a) \ge a \implies g(a) = f(a) - a \ge 0
+        \] and \[
+        f(b) \le b \implies g(b) = f(b) - b \le 0
+        \] Since $g(a)g(b) \le 0$ and $g$ is continuous on $[a,b]$, Intermediate Value Theorem states we can find a $c \in [a,b]$ such that $g(c) = 0$, which means $f(c) = c$.
+    }
 }
 
 \bx{ % 0.5.4
@@ -26,12 +49,56 @@
     a_n = \frac{(-1)^{n+1}}n, \quad \text{for } n = 1, 2, \dots
     \] \ea{
         \item Show that the series $\sum a_n$ is convergent.
-        \item Show that $\sum_{n=1}^\infty = \ln 2$.
+        \item Show that $\sum_{n=1}^\infty a_n = \ln 2$.
         \item Explain how to rearrange the terms of the series so it converges to 5.
         \item Explain how to rearrange the terms of the series so that it diverges.
+    }
+    \sol{
+        \ea{
+            \item We will begin by grouping the terms so that we can apply the Monotone Convergence Theorem \textbf{(Theorem 0.5.7)}. 
+            \[
+                s_{2n+1} = \sum_{i=1}^{2n+1} a_i 
+                = 1 + \sum_{i=1}^n a_{2i+1} - \sum_{i=1}^n a_{2i} 
+                = 1 + \sum_{i=1}^n \left(a_{2i+1} - a_{2i} \right)
+                = 1 + \sum_{i=1}^n \left(\frac1{2i+1} - \frac1{2i} \right)
+            \]
+            Since $\frac1{2i+1} < \frac1{2i}$, then $\frac1{2i+1}-\frac1{2i} < 0$. So $s_{2n+1}$ is strictly decreasing, and $s_{2n+1} < 1$ for all $n \in \mathbb N$.
+
+
+            Similarly,
+            \[
+                s_{2n} = \sum_{i=1}^{2n} a_i 
+                = \sum_{i=1}^n a_{2i-1} - \sum_{i=1}^n a_{2i} 
+                = \sum_{i=1}^n \left(a_{2i-1} - a_{2i}\right)
+                = \sum_{i=1}^n \left(\frac{1}{2i-1} - \frac1{2i}\right)
+            \]
+            Since $\frac1{2i-1} > \frac1{2i}$, then $\frac1{2i-1}-\frac1{2i} > 0$. So $s_{2n}$ is strictly increasing, and $s_{2n} > 0$ for all $n \in \mathbb N$.
+
+            Using $0 < s_{2n} < s_{2n+1} < 1$ and by the Monotone Convergence Theorem, $(s_{2n+1})$ is monotone decreasing and bounded below, thus converging. Similarly, $(s_{2n})$ is monotone increasing and bounded above, thus converging.
+
+            We have shown that the subsequences of odd terms and even terms converge, now we have to show that they converge to the same value. Suppose $(s_{2n}) \rightarrow M$ and $(s_{2n+1}) \rightarrow L$, then taking limits on both sides of 
+            \begin{align*}
+            |s_{2n+1} - s_{2n}| &= \left| \frac1{2n+1} \right| \\
+            \implies |M - L| &= \left| \lim a_{2n+1} - s_{2n} \right| \\
+            &=  \lim \left| \frac{1}{2n+1} \right| = 0
+            \end{align*}
+            showing that both subsequence converge to a single value.
+
+            \item Consider the Maclaurin Expansion of $\ln (1+x)$ 
+            \[
+            \ln (1+x) = \sum_{n=1}^\infty \frac{(-1)^{n+1} x^n}{n} = x - \frac{x^2}2 + \frac{x^3}3 - \cdots \quad \text{ for } |x| \le 1
+            \] 
+            Substituting $x = 1$, we get 
+            \[
+            \ln 2 = \sum_{n=1}^\infty \frac{(-1)^{n+1}}n = \sum_{n=1}^\infty a_n
+            \]
+
+            \item We can construct a series that converges to 5 following this algorithm. If the sum is under 5, the next term in the series will be the next unused odd index, otherwise, the next term will be the next unused even index.
+            \item We can construct a similar series to above that diverges. Begin by adding odd index terms until the sum is greater than 2. Add the first even index term. Continue adding odd index terms until the sum is greater than 3. Add the second even index term. Repeat by adding odd index terms until the sum is greater than $n$, then adding the $(n-1)$-th even index term.
+        }
     }
 }
 
 \bx{ % 0.5.5
-    Show that if a series $\sum_{k=1}^\infty a_n$ is absolutely convergent, then any rearrangement of the series is still converget and converges to the same limit. \textit{Hint: } For any $\epsilon > 0$, there exists $N$ such that $\sum_{n=N+1}^\infty < \epsilon$. For any rearrangement $\sum_{k=1}^\infty b_n$ of the series, there exists $M$ such that all of $a_1, \dots, a_N$ appear among $b_1, \dots, b_M$. Show that $\left|\sum_{n=1}^\infty a_n - \sum_{n=1}^M b_n \right| < \epsilon$.
+    Show that if a series $\sum_{k=1}^\infty a_n$ is absolutely convergent, then any rearrangement of the series is still convergent and converges to the same limit. \textit{Hint: } For any $\epsilon > 0$, there exists $N$ such that $\sum_{n=N+1}^\infty < \epsilon$. For any rearrangement $\sum_{k=1}^\infty b_n$ of the series, there exists $M$ such that all of $a_1, \dots, a_N$ appear among $b_1, \dots, b_M$. Show that $\left|\sum_{n=1}^N a_n - \sum_{n=1}^M b_n \right| < \epsilon$.
 }
