@@ -51,33 +51,33 @@
 \bx{ % 0.4.5
     Given the functions $f : A \rightarrow B$, $g : B \rightarrow C$, $h : A \rightarrow C$, and $k : C \rightarrow A$, which of the following compositions are well defined? For those that are, give the domain and codomain of each. 
     \eag{6}{
-    \task $f \circ g$
-    \task $g \circ f$
-    \task $h \circ f$
-    \task $g \circ h$
-    \task $k \circ h$
-    \task $h \circ g$
-    \task $h \circ k$
-    \task $k \circ g$
-    \task $k \circ f$
-    \task $f \circ h$
-    \task $f \circ k$
-    \task $g \circ k$
+    \task\ $f \circ g$
+    \task\ $g \circ f$
+    \task\ $h \circ f$
+    \task\ $g \circ h$
+    \task\ $k \circ h$
+    \task\ $h \circ g$
+    \task\ $h \circ k$
+    \task\ $k \circ g$
+    \task\ $k \circ f$
+    \task\ $f \circ h$
+    \task\ $f \circ k$
+    \task\ $g \circ k$
     }
     \sol{
         \eag{4}{
-        \task Not well defined.
-        \task $g \circ f:A\rightarrow C$
-        \task Not well defined.
-        \task Not well defined.
-        \task $k \circ h:A\rightarrow A$
-        \task Not well defined.
-        \task $h \circ k:C\rightarrow C$
-        \task $k \circ g:B\rightarrow A$
-        \task Not well defined.
-        \task Not well defined.
-        \task $f \circ k:C\rightarrow B$
-        \task Not well defined.
+        \task\ Not well defined.
+        \task\ $g \circ f:A\rightarrow C$
+        \task\ Not well defined.
+        \task\ Not well defined.
+        \task\ $k \circ h:A\rightarrow A$
+        \task\ Not well defined.
+        \task\ $h \circ k:C\rightarrow C$
+        \task\ $k \circ g:B\rightarrow A$
+        \task\ Not well defined.
+        \task\ Not well defined.
+        \task\ $f \circ k:C\rightarrow B$
+        \task\ Not well defined.
         }
     }
 }
@@ -89,6 +89,17 @@
         \item The inverse image of a union equals the union of the inverse images: \[
         f^{-1} (A \cup B) = f^{-1} (A) \cup f^{-1} (B)\]
     }
+
+    \sol{\ea{
+        \item We will show this by inclusion both ways: \er{
+            \item Let $y \in A \cap B$ with $x = f^{-1}(y) \in f^{-1}(A \cap B)$. Then $y \in A$ and $y \in B$, implying $x \in f^{-1}(A)$ and $x \in f^{-1}(B)$, thus $x \in f^{-1}(A) \cap f^{-1}(B)$.
+            \item The inverse is similar. $x \in f^{-1}(A) \cap f^{-1}(B)$, then $x \in f^{-1} (A)$ and $x \in f^{-1} (B)$, so $y \in A$ and $y \in B$. This shows that $y \in A \cap B$, hence, $x \in f^{-1}(A \cap B)$.
+        }
+        \item Similarly, by inclusion both ways: \er{
+            \item Let $y \in A \cup B$ with $x = f^{-1}(y) \in f^{-1}(A \cup B)$. Then $y \in A$ or $y \in B$, implying $x \in f^{-1}(A)$ or $x \in f^{-1}(B)$, thus $x \in f^{-1}(A) \cup f^{-1}(B)$.
+            \item The inverse is similar. $x \in f^{-1}(A) \cup f^{-1}(B)$, then $x \in f^{-1} (A)$ or $x \in f^{-1} (B)$, so $y \in A$ or $y \in B$. This shows that $y \in A \cup B$, hence, $x \in f^{-1}(A \cup B)$.
+        }
+    }}
 }
 
 \bx{ % 0.4.7
@@ -96,13 +107,38 @@
         \item $f(x) = x^2 -1, \quad g(x) = 3x, \quad h(x) = -x+ 2, \quad \text{for } a = 3$. 
         \item $f(x) = x^2 , \quad g(x)=x-3, \quad h(x) = x-3, \quad \text{for } a= 1$
     }
+    \sol{\ea{
+        \item \[
+        \begin{aligned}
+        (f\circ g \circ h)(3) &= f(g(h(3))) \\
+        &= f(g(-3 + 2)) = f(g(-1)) \\
+        &= f(3(-1)) = f(-3) \\
+        &= (-3)^2 - 1 = 8
+        \end{aligned}
+        \]
+        \item \[
+        \begin{aligned}
+        (f\circ g \circ h)(1) &= f(g(h(1))) \\
+        &= f(g(1-3)) = f(g(-2)) \\
+        &= f(-2-3) = f(-5) \\
+        &= (-5)^2 = 25
+        \end{aligned}
+        \]
+    }}
 }
 
 \bx{ % 0.4.8
     \ea{
         \item Prove Proposition 0.4.16. \textbf{(Composition of onto functions).} Let the functions $f : B \rightarrow C$ and $g : A \rightarrow B$ be onto. Then the composition $(f \circ g)$ is onto.
-        \item Prove Proposition 0.4.17. \textbf{(Composition of one to one functions).} Let $f: B\rightarrow C$ and $g: A \rightarrow C$ be one to one. Then the composition $(f\circ g)$ is one to one.
+        \item Prove Proposition 0.4.17. \textbf{(Composition of one to one functions).} Let $f: B\rightarrow C$ and $g: A \rightarrow B$ be one to one. Then the composition $(f\circ g)$ is one to one.
     }
+    \sol{
+    \ea{
+        \item Let $c \in C$. Since $f$ is onto, there exists some $b \in B$ such that $f(b)=c$. Since $g$ is onto, there exists some $a \in A$ such that $g(a)=b$. Hence $(f\circ g)(a)=f(g(a))=f(b)=c$. Since every $c\in C$ has a preimage under $f\circ g$, the composition $f\circ g$ is onto.
+
+        \item Let $a_1,a_2\in A$ and suppose $(f\circ g)(a_1)=(f\circ g)(a_2)$. Then $f(g(a_1))=f(g(a_2))$. Since $f$ is one to one, $g(a_1)=g(a_2)$. Since $g$ is one to one, $a_1=a_2$. Therefore $f\circ g$ is one to one.
+    }
+}
 }
 
 \bx{ % 0.4.9
