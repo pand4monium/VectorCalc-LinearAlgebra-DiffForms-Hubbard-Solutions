@@ -143,6 +143,9 @@
 
 \bx{ % 0.4.9
     What is the natural domain of $\displaystyle \sqrt{\frac xy}$?
+    \sol{
+        For $\sqrt{\frac xy}$ to be defined, $\frac xy \ge 0$. Hence the natural domain is $\{(x, y) \in \mathbb R^2 : y \ne 0, \frac xy \ge 0\}$.
+    }
 }
 
 \bx{ % 0.4.10
@@ -151,15 +154,36 @@
         \item $\ln \circ \ln \circ \ln $? 
         \item $\ln$ composed with itself $n$ times?
     }
+    \sol{ \ea{
+        \item The domain of $\ln x$ is $x > 0$. Hence the domain of $\ln \circ \ln$ is when $\ln x > 0$ which is $\{x \in \mathbb R: x > 1 \}$.
+        \item Similarly, the natural domain of $\ln\circ\ln\circ\ln$ is $\{x\in \mathbb R: x >e\}$.
+        \item The natural domain of $\ln$ composed with itself $n$ times is $\{x \in \mathbb R :x > e \uparrow \uparrow (n-2) \}$.
+    }}
 }
 
 \bx{ % 0.4.11
     What subset of $\mathbb R$ is the natural domain of the function $(1+x)^{1/x}$?
+    \sol{
+        For $(1+x)^{1/x}$ to be defined, we must have the following restrictions, $(1+x) >0$; to avoid fractional powers of negative numbers, and $x \ne 0$; as we cannot divide by zero. Hence, the natural domain is $(1, \infty) \setminus \{0\}$.
+    }
 }
 
 \bx{ % 0.4.12
-    The function $f(x) = x^2$ from real numbers to real nonnegative numbers is onto but not one to one. \ea{
+    The function $f(x) = x^2$ from real numbers to real nonnegative numbers is onto but not one to one.\ea{
         \item Can you make it one to one by changing its domain? By changing its codomain?
         \item Can you make it not onto by changing its domain? Its codomain?
     }
+    \sol{\ea{
+        \item Yes.
+        \er{
+            \item Change the domain to $[0,\infty)$. Then $f(x)=x^2$ is one to one and remains onto $\mathbb{R}_{\ge 0}$.
+            \item Changing the codomain to $\{0\}$, makes $f(x) = x^2$ trivially one to one
+        }
+
+        \item Yes.
+        \er{
+            \item Change the domain to $(0,\infty)$. Then $0$ is no longer attained, so $f$ is not onto $\mathbb{R}_{\ge 0}$.
+            \item Change the codomain to $\mathbb{R}$. Then negative real numbers are not attained, so $f$ is not onto.
+        }
+    }}
 }
