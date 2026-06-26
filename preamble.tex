@@ -1,12 +1,16 @@
 \usepackage[margin=1in]{geometry}
 
-\usepackage{array}
-\usepackage{amsmath} % enable align environments
+
+\usepackage{amsmath} % enable align 
+\usepackage[autostyle, english=british]{csquotes}
 \usepackage[inline]{enumitem} % enable enumeration
 \usepackage{fancyhdr}
 \PassOptionsToPackage{hyphens}{url}\usepackage{hyperref} % allow for URL wrapping
 \usepackage[standard]{ntheorem}
-\usepackage{tabularx}
+
+
+% Formatting of Text
+\MakeOuterQuote{"} 
 
 
 % Exercise Theorem Environment
@@ -28,19 +32,19 @@
 \newcommand{\eah}[1]{\begin{center} \begin{enumerate*}[label=\alph*., itemjoin=\qquad] #1 \end{enumerate*} \end{center}}
 \newcommand{\er}[1]{\begin{enumerate}[label=(\roman*)] #1 \end{enumerate}}
 
-\newcolumntype{C}{>{\centering\arraybackslash}X}
+\usepackage{tasks}
 
-\newcounter{eagitem}
-
-\newcommand{\eaglabel}{\stepcounter{eagitem}\alph{eagitem}.\hspace{0.5em}}
+\settasks{
+    label=\alph*.,
+    label-width=2.2em,
+    label-offset=0pt,
+    item-indent=2.2em,
+    column-sep=2em,
+    after-item-skip=1ex
+}
 
 \newcommand{\eag}[2]{%
-\begingroup
-\setcounter{eagitem}{0}%
-\begin{center}
-\begin{tabularx}{\linewidth}{*{#1}{C}}
+\begin{tasks}(#1)
 #2
-\end{tabularx}
-\end{center}
-\endgroup
+\end{tasks}
 }

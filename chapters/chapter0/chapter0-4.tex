@@ -6,6 +6,13 @@
         \item $f(x) = \frac 1x$, from real numbers to real numbers.
         \item "The capital of", from countries to cities (careful - at least one country, Bolivia, has to capitals.)
     }
+    \sol{
+        \ea{
+            \item Considering the cases where and individual's parents not having any sisters, the individual does not have an aunt, making it not everywhere defined. Considering the cases where an individual has multiple aunts, the function is not well defined.
+            \item The function is not everywhere defined on real numbers as when $x = 0$, $f(x)$ is undefined. The function however is wel defined as if $f(x) = f(y)$, then $x =y$.
+            \item The function is everywhere defined as every country has a capital. However, it is not well defined as some countries, such as Bolivia, has two capitals.
+        }
+    }
 }
 
 \bx{ %0.4.2
@@ -13,6 +20,10 @@
         \item Make up a nonmathematical function that is onto but not one to one.
         \item Make up a mathematical function that is onto but not one to one.
     }
+    \sol{\ea{
+        \item The suit of a poker card is onto but not one to one; every card has a suit but more that one card has the same suit.
+        \item $f: \mathbb R \rightarrow \mathbb R \quad f(x) = x^2$
+    }}
 }
 
 \bx{ % 0.4.3
@@ -20,6 +31,10 @@
         \item Make up a nonmathematical function that is bijective (onto and one to one).
         \item Make up a mathematical function that is bijective.
     }
+    \sol{\ea{
+        \item The thumbprint of a person is bijective as everyone has a thumbprint that is unique.
+        \item $f: \mathbb R \rightarrow \mathbb R \quad f(x) = x$.
+    }}
 }
 
 \bx{ % 0.4.4
@@ -27,24 +42,44 @@
         \item Make up a nonmathematical function that is one to one but not onto.
         \item Make up a mathematical function that is one to one but not onto.
     }
+    \sol{\ea{
+        \item The function mapping credit card to credit card numbers is one to one but not onto; as each card number is unique but not all card numbers have been used.
+        \item $f: \mathbb R \rightarrow \mathbb R \quad f(x) = e^x$.
+    }}
 }
 
 \bx{ % 0.4.5
     Given the functions $f : A \rightarrow B$, $g : B \rightarrow C$, $h : A \rightarrow C$, and $k : C \rightarrow A$, which of the following compositions are well defined? For those that are, give the domain and codomain of each. 
     \eag{6}{
-    \eaglabel\ $f \circ g$ &
-    \eaglabel\ $g \circ f$ &
-    \eaglabel\ $h \circ f$ &
-    \eaglabel\ $g \circ h$ &
-    \eaglabel\ $k \circ h$ &
-    \eaglabel\ $h \circ g$ \\
-    \eaglabel\ $h \circ k$ &
-    \eaglabel\ $k \circ g$ &
-    \eaglabel\ $k \circ f$ &
-    \eaglabel\ $f \circ h$ &
-    \eaglabel\ $f \circ k$ &
-    \eaglabel\ $g \circ k$
-}
+    \task $f \circ g$
+    \task $g \circ f$
+    \task $h \circ f$
+    \task $g \circ h$
+    \task $k \circ h$
+    \task $h \circ g$
+    \task $h \circ k$
+    \task $k \circ g$
+    \task $k \circ f$
+    \task $f \circ h$
+    \task $f \circ k$
+    \task $g \circ k$
+    }
+    \sol{
+        \eag{4}{
+        \task Not well defined.
+        \task $g \circ f:A\rightarrow C$
+        \task Not well defined.
+        \task Not well defined.
+        \task $k \circ h:A\rightarrow A$
+        \task Not well defined.
+        \task $h \circ k:C\rightarrow C$
+        \task $k \circ g:B\rightarrow A$
+        \task Not well defined.
+        \task Not well defined.
+        \task $f \circ k:C\rightarrow B$
+        \task Not well defined.
+        }
+    }
 }
 
 \bx{ % 0.4.6
