@@ -1,2 +1,82 @@
 \pagebreak
 \section{Infinite Sets}
+
+\bx{ % 0.6.1
+    \ea{
+        \item Show that the set of rational numbers is countable (i.e., that you can list all rational numbers).
+        \item Show that the set of $\mathbb D$ of finite decimals is countable.
+    }
+}
+
+\bx{ % 0.6.2
+    \ea{
+        \item Show that if $E$ is finite and has $n$ elements,hen the power set $\mathcal P(E)$ has $2^n$ elements.
+        \item Choose a map $f  :  \{a, b, c\} \rightarrow \mathcal P(\{a, b, c\})$, and compute for that map the set $\{ x | x \notin f(x) \}$. Verify that this set is not in the image of $f$.
+    }
+}
+
+\bx{ % 0.6.3
+    Show that $(-1 , 1)$ has the same infinity of points as the reals.\ \textit{Hint}: Consider the function $g(x) = \tan (\pi x /2)$.
+}
+
+\bx{ % 0.6.4
+    \ea{
+        \item How many polynomials of degree $d$ are there with coefficients with absolute value $ \le d $?
+        \item Give an upper bound for the position in the list of formula 0.6.5 of the polynomial $x^4 - x^3 + 5$.
+        \item Give an upper bound for the position of the real cube root of $2$ is the list of numbers made from the list of formula 0.6.5.
+    }
+}
+
+\bx{ % 0.6.5
+    Let $f : A \rightarrow B$ and $g : B \rightarrow A$ be one to one. We will sketch how to construct a mapping $h : A \rightarrow B$ that is one to one and onto.
+
+    Let an $(f, g)$-chain be a sequence consisting alternately of elements of $A$ and $B$, with elements following an element $a \in A$ being $f(a) \in B$, and the element following an element $b \in  B$ being $g(b) \in A$. 
+    \ea{
+        \item Show that every $(f,g)$-chain can be uniquely continued forever to the right, and to the left can \en{
+            \item either be uniquely continued forever, or
+            \item can be continued to an element of $A$ that is not in the image of $g$, or 
+            \item can be continued to an element of $B$ that is not in the image of $f$.
+        }
+        \item Show that every element of $A$ an every element of $B$ is an element of a unique such maximal $(f,g)$-chain.
+        \item Construct $h : A \rightarrow B$ by setting 
+            \[
+            h(a) = \begin{cases*}
+            f(a)      & if $a$ belongs to a maximal chain of type 1 or 2 above, \\
+            g^{-1}(a) & if $a$ belongs to a maximal chain of type 3.
+            \end{cases*}
+            \]
+            Show that $h : A \rightarrow B$ is well defined, one to one, and onto.
+        
+        \item Take $A = [-1, 1]$ and $B = (-1, 1)$. It is surprisingly difficult to write a mapping $h : A \rightarrow B$. Take $f : A \rightarrow B$ defined by $f(x) = x/2$, and $g : B \rightarrow A$ defined by $g(x) = x$.
+        
+        What elements of $[-1, 1]$ belong to chains of type 1, 2, 3?
+
+        What map $h : [-1,1] \rightarrow (-1,1)$ does the construction in part c give?
+    }
+}
+
+\bx{ % 0.6.6
+    Show that the points of the circle 
+    $\displaystyle \left\{ 
+    \begin{pmatrix}
+        x \\ y
+    \end{pmatrix}
+    \in \mathbb R^2 \ | \ x^2 + y^2 = 1 \right\}
+    $ have the same infinity of elements as $\mathbb R$.\ \textit{Hint}: This is easy if you use Bernstein's theorem (Exercise 0.6.5)
+}
+
+\bx{ % 0.6.7
+    \ea{
+        \item Show that $[0,1) \ \times \ [0,1)$ has the same cardinality as $[0,1)$.
+        \item Show that $\R^2$ has the same infinity as $\R$.
+        \item Show that $\R^n$ has the same infinity as $\R$.
+    }
+}
+
+\bx{ % 0.6.8
+    Show that the power set $\mathcal P(\N)$ has the same cardinality as $\R$.
+}
+
+\bx{ % 0.6.9
+    Is it possible to list (all) the rationals in $[0,1]$, written as decimals, so that the entries on the diagonal also give a rational number?
+}
