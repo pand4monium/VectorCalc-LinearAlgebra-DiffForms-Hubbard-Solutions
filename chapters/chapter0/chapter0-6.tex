@@ -6,17 +6,87 @@
         \item Show that the set of rational numbers is countable (i.e., that you can list all rational numbers).
         \item Show that the set of $\mathbb D$ of finite decimals is countable.
     }
+    \sol{
+        \ea{
+            \item Let
+            \[
+                A=\{(p,q)\in\mathbb Z\times\mathbb N:q>0,\ \gcd(p,q)=1\}.
+            \]
+            Every rational number has a unique representation
+            \[
+                r=\frac pq,\qquad (p,q)\in A.
+            \]
+            Since $\mathbb Z$ and $\mathbb N$ are countable, the Cartesian product
+            $\mathbb Z\times\mathbb N$ is countable. Hence $A$, being a subset of
+            $\mathbb Z\times\mathbb N$, is also countable.
+
+            Define
+            \[
+                f:A\to\mathbb Q,\qquad
+                f(p,q)=\frac pq.
+            \]
+            By uniqueness of the reduced form, $f$ is one-to-one, and by definition
+            every rational number is of the form $p/q$ with $(p,q)\in A$, so $f$ is
+            onto. Thus $f$ is a bijection, and therefore $\mathbb Q$ is countable.
+
+            \item Every finite decimal can be written in the form
+            \[
+                \frac{k}{10^n},
+            \]
+            where $k\in\mathbb Z$ and $n\in\mathbb N\cup\{0\}$. Define
+            \[
+                g:\mathbb D\to\mathbb Z\times(\mathbb N\cup\{0\}),\qquad
+                g\!\left(\frac{k}{10^n}\right)=(k,n),
+            \]
+            where the decimal is written without trailing zeros.
+
+            This map is one-to-one. Since $\mathbb Z\times(\mathbb N\cup\{0\})$ is
+            countable, its subset $\mathbb D$ is also countable.
+        }
+    }
 }
 
 \bx{ % 0.6.2
     \ea{
-        \item Show that if $E$ is finite and has $n$ elements,hen the power set $\mathcal P(E)$ has $2^n$ elements.
+        \item Show that if $E$ is finite and has $n$ elements, then the power set $\mathcal P(E)$ has $2^n$ elements.
         \item Choose a map $f  :  \{a, b, c\} \rightarrow \mathcal P(\{a, b, c\})$, and compute for that map the set $\{ x | x \notin f(x) \}$. Verify that this set is not in the image of $f$.
+    }
+    \sol{\ea{
+        \item Number the elements of $E$ as $e_1,\dots,e_n$. To form a subset $X \subseteq E$, for each element $e_i$ we have exactly two choices:
+            \[
+            e_i \in X \qquad \text{or} \qquad e_i \notin X.
+            \]
+            These choices are independent, so by the multiplication principle there are
+            \[
+            \underbrace{2 \times 2 \times \cdots \times 2}_{n\text{ times}} = 2^n
+            \]
+            possible choices. Moreover, each sequence of choices determines a unique subset of $E$, and every subset arises in this way. Hence $\mathcal P(E)$ has exactly $2^n$ elements.
+
+        \item Define $f(x) = \{x\}$. Then $\{x | x \notin f(x)\} = \emptyset$, which is not in the image of $f$.
+        }   
     }
 }
 
+\pagebreak
 \bx{ % 0.6.3
     Show that $(-1 , 1)$ has the same infinity of points as the reals.\ \textit{Hint}: Consider the function $g(x) = \tan (\pi x /2)$.
+    \sol{
+        Considering the function $g(x) = \tan (\pi x /2)$ over the domain $(-1,1)$, we get the mapping $ g : (-1,1) \rightarrow \R$. We will now show that $g$ is a bijection.
+
+        Calculating the derivative of $g$, gives us $g'(x) = \frac\pi2 \sec^2 ( \pi x /2) > 0$ for all $x \in (-1, 1)$. Since $g$ is continuous and strictly increasing on $(-1,1)$, $g$ is one to one.
+
+        To show that $g$ is onto, let 
+        \[
+        \tan \left(\frac{\pi x}2 \right) = y \implies \frac{\pi x}2 = \tan^{-1} (y) \in \left( -\frac\pi2, \frac\pi2 \right)
+        \] 
+        Then 
+        \[
+        -\frac\pi2 < \frac{\pi x}2 < \frac\pi2 \implies -1 < x < 1 \implies x \in (-1, 1)
+        \]
+        Thus showing that for every $y \in \R$, there exists $x \in (-1,1)$ such that $g(x) = y$, implying that $g$ is onto and therefore a bijection.
+
+        We have thus shown that $(-1 , 1) \asymp \R$.
+    }
 }
 
 \bx{ % 0.6.4
@@ -24,6 +94,40 @@
         \item How many polynomials of degree $d$ are there with coefficients with absolute value $ \le d $?
         \item Give an upper bound for the position in the list of formula 0.6.5 of the polynomial $x^4 - x^3 + 5$.
         \item Give an upper bound for the position of the real cube root of $2$ is the list of numbers made from the list of formula 0.6.5.
+    }
+    \sol{
+        \ea{
+            \item Let $p_d(x) = a_d x^d + a_{d-1} x^{d-1} + \cdots + a_0$ be a polynomial of degree $d$, with $|a_i| \le d$ and $a_d \ne 0$.
+            
+            To find the number of polynomials, we will consider the number of cases for each coefficient. 
+
+            For $a_d$,
+            \[
+            a_d \in \{-d, -d+1, \dots, d-1, d\} \setminus \{0\}
+            \]
+            which can take $(2d)$ possible values.
+
+            For $a_i$, $i < d$, 
+            \[
+            a_i \in \{-d, -d+1, \dots, d-1, d\}
+            \]
+            which can take $(2d+1)$ possible values.
+
+            Since each coefficient is independent, by the multiplication principle, there are 
+            \[
+            (2d) \times \underbrace{(2d+1) \times \cdots \times (2d+1)}_{(d) \text{ times}} = (2d)(2d+1)^{d}
+            \]
+            possible polynomials of degree $d$.
+
+            \item Let $P_d$ be the number of polynomials of degree $d$ or lower, with coefficients with absolute value $ \le d$ and $p_i$ be the polynomial with index position $i$. Then using similar reasoning to above, $P_d = (2d+1)^{d+1}$.
+            
+            While $x^4 - x^3 + 5$ is a polynomial of degree $4$, the coefficient of $x^0$ is $5$, hence it must be within the first $P_5$ polynomials, thus the upper bound for the position of the polynomial $x^4 - x^3 + 5$ is $P_5 = 11^6$.
+
+            \item Similarly, $x^3 - 2$ will be within the first $P_3$ polynomials. Since each polynomial would have at most $3$ roots, we will have an upper bound of 
+            \[
+            3 P_3 = 3 \times 7^4
+            \] for the position in the list of numbers made from the list of formula 0.6.5.
+        }
     }
 }
 
@@ -67,7 +171,7 @@
 
 \bx{ % 0.6.7
     \ea{
-        \item Show that $[0,1) \ \times \ [0,1)$ has the same cardinality as $[0,1)$.
+        \item Show that $[0,1) \times [0,1)$ has the same cardinality as $[0,1)$.
         \item Show that $\R^2$ has the same infinity as $\R$.
         \item Show that $\R^n$ has the same infinity as $\R$.
     }
