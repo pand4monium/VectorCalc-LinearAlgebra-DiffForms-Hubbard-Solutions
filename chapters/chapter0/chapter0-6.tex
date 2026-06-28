@@ -134,14 +134,14 @@
 \bx{ % 0.6.5
     Let $f : A \rightarrow B$ and $g : B \rightarrow A$ be one to one. We will sketch how to construct a mapping $h : A \rightarrow B$ that is one to one and onto.
 
-    Let an $(f, g)$-chain be a sequence consisting alternately of elements of $A$ and $B$, with elements following an element $a \in A$ being $f(a) \in B$, and the element following an element $b \in  B$ being $g(b) \in A$. 
+    Let an $(f, g)$-chain be a sequence consisting alternately of elements of $A$ and $B$, with elements following an element $a \in A$ being $f(a) \in B$, and the element following an element $b \in B$ being $g(b) \in A$. 
     \ea{
         \item Show that every $(f,g)$-chain can be uniquely continued forever to the right, and to the left can \en{
             \item either be uniquely continued forever, or
             \item can be continued to an element of $A$ that is not in the image of $g$, or 
             \item can be continued to an element of $B$ that is not in the image of $f$.
         }
-        \item Show that every element of $A$ an every element of $B$ is an element of a unique such maximal $(f,g)$-chain.
+        \item Show that every element of $A$ and every element of $B$ is an element of a unique such maximal $(f,g)$-chain.
         \item Construct $h : A \rightarrow B$ by setting 
             \[
             h(a) = \begin{cases*}
@@ -156,6 +156,57 @@
         What elements of $[-1, 1]$ belong to chains of type 1, 2, 3?
 
         What map $h : [-1,1] \rightarrow (-1,1)$ does the construction in part c give?
+    }
+    \sol{
+        \ea{
+            \item We first show that every $(f,g)$-chain can be uniquely continued forever to the right.
+
+            Suppose $a \in A$. Since $f : A \rightarrow B$ is a function,
+            $
+            f(a) \in B
+            $
+            exists uniquely. Likewise, since $g : B \rightarrow A$ is a function,
+            $
+            g(f(a)) \in A
+            $
+            exists uniquely. Repeating this argument inductively gives the infinite chain
+            $
+            a,\; f(a),\; g(f(a)),\; f(g(f(a))),\; \dots
+            $
+            Thus every $(f,g)$-chain can be uniquely continued forever to the right.
+
+            We now consider continuation to the left. Let
+            \[
+            A^* = A \setminus g(B), \qquad
+            B^* = B \setminus f(A).
+            \]
+
+            Suppose first that the current element of the chain is $a \in A$. To continue one step to the left we require an element $b \in B$ satisfying
+            $
+            g(b)=a.
+            $
+            If $a \in g(B)$, then such a $b$ exists. Since $g$ is one to one, this $b$ is unique. If instead $a \in A^*$, then no such $b$ exists, and the chain terminates on the left at $a$. This gives case (2).
+
+            Similarly, suppose the current element is $b \in B$. To continue one step to the left we require an element $a \in A$ satisfying
+            $
+            f(a)=b.
+            $
+            If $b \in f(A)$, then such an $a$ exists and is unique since $f$ is one to one. If instead $b \in B^*$, then no such $a$ exists, and the chain terminates on the left at $b$. This gives case (3).
+
+            Finally, if neither of the above situations ever occurs, then every element encountered has a unique predecessor. Hence the chain can be uniquely continued indefinitely to the left, giving case (1). Since exactly one of these three possibilities must occur, every $(f,g)$-chain satisfies exactly one of the stated cases.
+            
+            \item Let $x \in A \cup B$. We construct the maximal $(f,g)$-chain containing $x$.
+
+            Starting from $x$, repeatedly apply $f$ and $g$ to extend the chain to the right. By part (a), this can be done uniquely forever. 
+            Similarly, repeatedly extend the chain to the left whenever a predecessor exists. Again by part (a), each predecessor, when it exists, is unique. 
+            This process either continues forever or terminates at an element of $A^*$ or $B^*$. 
+            Hence every element of $A \cup B$ belongs to a maximal $(f,g)$-chain.
+
+            It remains to show uniqueness. 
+            Suppose $x$ belongs to two maximal chains $C_1$ and $C_2$. Since the predecessor and successor of every element are uniquely determined whenever they exist, 
+            both chains must have exactly the same elements to the left and to the right of $x$. Thus $C_1=C_2$.
+            Therefore every element of $A$ and every element of $B$ belongs to a unique maximal $(f,g)$-chain.
+        }
     }
 }
 
