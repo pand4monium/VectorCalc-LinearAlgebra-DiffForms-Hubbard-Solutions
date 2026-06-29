@@ -194,7 +194,7 @@
             If $b \in f(A)$, then such an $a$ exists and is unique since $f$ is one to one. If instead $b \in B^*$, then no such $a$ exists, and the chain terminates on the left at $b$. This gives case (3).
 
             Finally, if neither of the above situations ever occurs, then every element encountered has a unique predecessor. Hence the chain can be uniquely continued indefinitely to the left, giving case (1). Since exactly one of these three possibilities must occur, every $(f,g)$-chain satisfies exactly one of the stated cases.
-            
+            \pagebreak
             \item Let $x \in A \cup B$. We construct the maximal $(f,g)$-chain containing $x$.
 
             Starting from $x$, repeatedly apply $f$ and $g$ to extend the chain to the right. By part (a), this can be done uniquely forever. 
@@ -206,6 +206,55 @@
             Suppose $x$ belongs to two maximal chains $C_1$ and $C_2$. Since the predecessor and successor of every element are uniquely determined whenever they exist, 
             both chains must have exactly the same elements to the left and to the right of $x$. Thus $C_1=C_2$.
             Therefore every element of $A$ and every element of $B$ belongs to a unique maximal $(f,g)$-chain.
+
+            \item Firstly, we will show that the function is well defined.
+            If $a$ belongs to a maximal chain of type 1 or 2, each element of $a$ would have a subsequent term since every sequence can be uniquely continued forever to the right. Thus, the term $f(a)$ exists, thus there exists an image for $a$.
+
+            If $a$ belongs to a maximal chain of type 3, then the first term of the chain belongs to the set $B$. Since every $a$ has a preceding term, which is equivalent to $g^{-1}(a)$. Thus the inverse exists. 
+
+            Since every term has an image, $h$ is well defined.
+
+            $h$ is one to one. Suppose we have $a_1, a_2 \in A$, such that $h(a_1) = h(a_2)$ but $a_1 \ne a_2$. If both $a_1$ and $a_2$ belong to the a maximal chain of type 1 or 2, then $h(a_1) = f(a_1)$ and $h(a_2) = f(a_2)$, implying $f(a_1) = f(a_2)$, which a contradiction since $f$ is one to one. Similarly, if both $a_1$ and $a_2$ belong to the a maximal chain of type 3, then $h(a_1) = g^{-1} (a_1)$ and $h(a_2) = g^{-1} (a_2)$, implying that $g^{-1} (a_1) = g^{-1} (a_2)$. This is a contradiction as $g$ is one to one, hence $g^{-1}$ is one to one.
+
+            Lastly, we have to consider the case where $h(a_1) = f(a_1)$ and $h(a_2) = g^{-1}(a_2)$. Let $h(a_1) = h(a_2)$, then $f(a_1) = g^{-1}(a_2)$. Since $g$ is one to one, applying $g$ on both sides gives us $g \circ f (a_1) = a_2$. However, this means that both $a_1$ and $g \circ f (a_1) = a_2$ belong to the same chain, which leads to a contradiction.
+
+            Lastly, we will show that $h$ is onto. We need to show that for every $b \in B$, there exists $a \in A$ such that $b = h(a)$. We use the fact that if $a$ is in the chain, then $f(a)$ and $g^{-1}(a)$ (if it exists) are both in the chain. Hence we can construct the inverse
+            \[
+            h^{-1} (b) = 
+            \begin{cases*}
+            f^{-1} (b) & if $b$ belongs to a maximal chain of type 1 or 2, \\
+            g(b) & if $b$ belongs to a maximal chain of type 3
+            \end{cases*}
+            \]
+            If $b \in B$ is from chains of type 1 and 2, then $b \in f(A)$ so $b = f(a) = h(a)$. Similarly, if $b$ is from chains of type 3, then $h(g(b)) = g^{-1} (g(b)) = b$. Thus having a preimage and hence onto
+
+            \item Note that $f(A) = f( [-1, 1] ) = [-1/2, 1/2]$ and $g(B) = g( (-1, 1) ) = (-1, 1)$, giving us 
+            \[
+            A^* = A \setminus g(B) = \{ -1,  1\}
+            \quad
+            \text{and}
+            \quad
+            B^* = B \setminus f(A) = (-1, -1/2) \cup (1/2, 1)
+            \]
+            For elements in $A^*$, there does not exist $g^{-1}(A^*)$, hence belonging to chains of type 2. 
+            With the first terms being $\pm 1$, all terms in the chain are in the form of $\pm 2^{-n}$ for $n \in \N$; proving this is trivial and hence left as an exercise for the reader.
+
+            The starting elements of the chains of type 3 are $B^*$, and hence the elements from $A$ that are in this chain are $g(B^*) = B^*$. Since $g \circ f (x)  = \frac x2$, the subsequent terms in the chain come from the set 
+            \[
+            \bigcup_{n=0}^\infty [(-2^{-n}, -2^{-n-1}) \cup (2^{-n-1}, 2^{-n})] = [-1,1] \setminus \bigcup_{n=0}^\infty \{ \pm 2^{-n} \}
+            \]
+
+            Let $S_n$ be the set of numbers from $A$ that belong to a maximal chain of type $n$. Since $S_2 \cup S_3 = A$, we can conclude that there are no elements that belong to chains of type 1.
+
+            Using part c, we can construct $h : A \rightarrow B$ that is one to one and onto 
+            \[
+            h(x) = 
+            \begin{cases}
+            x/2 & x \in \{ \pm 2^{-n} : n \in \N_0\} \\
+            x & \text{else} 
+            \end{cases}
+            \]
+
         }
     }
 }
