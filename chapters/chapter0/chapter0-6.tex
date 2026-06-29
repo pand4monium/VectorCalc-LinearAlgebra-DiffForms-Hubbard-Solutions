@@ -261,12 +261,45 @@
 
 \bx{ % 0.6.6
     Show that the points of the circle 
-    $\displaystyle \left\{ 
+    $
+    \displaystyle \left\{ 
     \begin{pmatrix}
         x \\ y
     \end{pmatrix}
     \in \mathbb R^2 \ | \ x^2 + y^2 = 1 \right\}
-    $ have the same infinity of elements as $\mathbb R$.\ \textit{Hint}: This is easy if you use Bernstein's theorem (Exercise 0.6.5)
+    $ 
+    have the same infinity of elements as $\mathbb R$.\ \textit{Hint}: This is easy if you use Bernstein's theorem (Exercise 0.6.5)
+
+    \sol{
+        We will use Bernstein's Theorem from Exercise 0.6.5, by firstly finding to injective maps.
+
+        Let us define
+        \[
+        S = \left\{ \begin{pmatrix}
+        x \\ y
+        \end{pmatrix} \in \R^2 \ | \ x^2 + y^2 = 1 \right\}
+        \]
+
+        We will construct the map $f : S \rightarrow \R$ as follows 
+        \[
+            f(x,y) = 
+            \begin{cases}
+            x + 1 & y \ge 0 \\ 
+            x - 1 & y < 0
+            \end{cases}
+        \]
+        $f$ is one to one. Suppose we have $(x_1,y_1), (x_2, y_2) \in S$ such that $(x_1, y_1) \ne (x_2, y_2)$ but $f(x_1, y_1) = f(x_2, y_2)$. 
+        If both $y_1, y_2 \ge 0$ or $y_1, y_2 < 0$, $x_1 \ne x_2$; otherwise both points are the same point given that $y = \sqrt{1 - x^2}$ is one to one.
+        If $y_1 \ge 0$ and $y_2 < 0$, then $f(x_1, y_1) = f(x_2, y_2)$ implies $x_1 + 1 = x_2 - 1 $ which is not possible. The two x coordinates must differ by 2, which is only possible if $x_1 = -1$ and $x_2 = 1$. However, this results in $y_1 = y_2 = 0$, leading to a contradiction on $y_2 < 0$.
+
+        Now, we construct the map $g : \R \rightarrow S$ as follows 
+        \[
+            g(x) = \left( \cos (\tan^{-1} x), \sin(\tan^{-1} x) \right) = \left( \frac1{\sqrt{1+x^2}} , \frac x{\sqrt{1+x^2}} \right)
+        \]
+        $g$ is clearly injective as $\tan^{-1}$ is injective and, $\sin$ and $\cos$ is also injective. By the composition of injective functions, $g$ is also injective.
+
+        Since we have $f : S \rightarrow \R$ and $g: \R \rightarrow S$ that are both one to one, we can use Bernstein's Theorem to construct $h: S \rightarrow \R$ that is both one to one and onto, showing that $S \asymp \R$.
+    }
 }
 
 \bx{ % 0.6.7
@@ -279,6 +312,12 @@
 
 \bx{ % 0.6.8
     Show that the power set $\mathcal P(\N)$ has the same cardinality as $\R$.
+    \sol{
+        Constuct the following set 
+        \[
+        A = \{ (a_1, a_2, a_3, \dots) : a_n = 1 \text{ or } 0 \ \forall \ n \in \N \}
+        \]
+    }
 }
 
 \bx{ % 0.6.9
