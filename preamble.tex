@@ -47,6 +47,13 @@
     after-item-skip=1ex
 }
 
+\newcommand{\eg}[2]{
+    \begin{tasks}[label=, label-width=0em, column-sep=0.5em](#1)
+        #2
+    \end{tasks}
+}
+
+
 \newcommand{\eag}[2]{%
 \begin{tasks}(#1)
 #2
