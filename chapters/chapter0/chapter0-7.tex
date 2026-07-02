@@ -46,7 +46,7 @@
         \]
     }
 }
-
+\pagebreak
 \bx{ %0.7.3
     Find the absolute value and argument of each of the following complex numbers:
     \eah{
@@ -85,10 +85,69 @@
 
 \bx{ %0.7.5
     Verify the nine rules for addition and multiplication of complex numbers. Statements 5 and 9 are the only ones that are not immediate.
-}
+    \sol{
+        To recall, the nine rules, for $z_1,z_2,z_3 \in \mathbb C$ are:
+        \[
+        \begin{cases*}
+            1. \ (z_1 + z_2) + z_3 = z_1 + (z_2 + z_3) & Addition is associative. \\
+            2. \ z_1 + z_2 = z_2 + z_1 & Addition is commutative. \\
+            3. \ z + 0 = z & 0 is an additive identity. \\
+            4. \ (a + ib) + (-a - ib) = 0 & Existence of an additive inverse. \\
+            5. \ (z_1z_2)z_3 = z_1 (z_2z_3) & Multiplication is associative. \\
+            6. \ z_1z_2 = z_2z_1 & Multiplication is commutative. \\
+            7. \ 1z = z & 1 is a multiplicative identity. \\
+            8. \ (a + ib)\left( \frac{a}{a^2+b^2} - i \frac{b}{a^2+b^2} \right) = 1 & Existence of a multiplicative inverse. \\
+            9. \ z_1 (z_2+z_3) = z_1z_2 + z_1z_3 & Multiplication is distributive over addition.
+        \end{cases*}
+        \]
+        Rules 1 to 4 are trivial since the addition of complex numbers is equivalent to the addition under $\R^2$.
 
+        We will show the multiplicative properties. Rule 6 is true since $\R$ also satisfies the multiplicative commutative property
+        \[
+        (a_1 + ib_1)(a_2 + ib_2) = a_1a_2 - b_1b_2 + i(a_1b_2 + a_2b_1) = a_2a_1 - b_2b_1 + i (b_2a_1 + b_1a_2) = (a_2 + ib_2)(a_1 + ib_1).
+        \]
+        Rule 7 is trivially true as
+        \[
+        1(a + ib) = 1a + i(1b) = a + ib.
+        \]
+
+        Rule 8 is also true by simply expanding the expression. This is trivial and hence left as an exercise for the reader.
+
+        We have left Rules 5 and 9 to the last since they are more complicated. For Rule 5, we expand the expressions as follows:
+        \begin{align*}
+        (z_1z_2)z_3
+        &=\Bigl[(a_1a_2-b_1b_2)+i(a_1b_2+a_2b_1)\Bigr](a_3+ib_3) \\
+        &=\Bigl[(a_1a_2-b_1b_2)a_3-(a_1b_2+a_2b_1)b_3\Bigr]
+        +i\Bigl[(a_1a_2-b_1b_2)b_3+(a_1b_2+a_2b_1)a_3\Bigr] \\
+        &=(a_1a_2a_3-a_3b_1b_2-a_1b_2b_3-a_2b_1b_3)
+        +i(a_1a_2b_3-b_1b_2b_3+a_1a_3b_2+a_2a_3b_1), \\[1ex]
+        z_1(z_2z_3)
+        &=(a_1+ib_1)\Bigl[(a_2a_3-b_2b_3)+i(a_2b_3+a_3b_2)\Bigr] \\
+        &=\Bigl[a_1(a_2a_3-b_2b_3)-b_1(a_2b_3+a_3b_2)\Bigr]
+        +i\Bigl[a_1(a_2b_3+a_3b_2)+b_1(a_2a_3-b_2b_3)\Bigr] \\
+        &=(a_1a_2a_3-a_1b_2b_3-a_2b_1b_3-a_3b_1b_2)
+        +i(a_1a_2b_3+a_1a_3b_2+a_2a_3b_1-b_1b_2b_3).
+        \end{align*}
+        which is equivalent since addition over $\R$ is also associative.
+
+        Lastly, Rule 9 follows a similar approach:
+        \begin{align*}
+        z_1(z_2+z_3)
+        &=(a_1+ib_1)\bigl[(a_2+a_3)+i(b_2+b_3)\bigr] \\
+        &=\Bigl[a_1(a_2+a_3)-b_1(b_2+b_3)\Bigr]
+        +i\Bigl[a_1(b_2+b_3)+b_1(a_2+a_3)\Bigr] \\
+        &=(a_1a_2+a_1a_3-b_1b_2-b_1b_3)
+        +i(a_1b_2+a_1b_3+a_2b_1+a_3b_1), \\
+        z_1z_2+z_1z_3
+        &=\Bigl[(a_1a_2-b_1b_2)+i(a_1b_2+a_2b_1)\Bigr]
+        +\Bigl[(a_1a_3-b_1b_3)+i(a_1b_3+a_3b_1)\Bigr] \\
+        &=(a_1a_2+a_1a_3-b_1b_2-b_1b_3)
+        +i(a_1b_2+a_1b_3+a_2b_1+a_3b_1).
+        \end{align*}
+    }
+}
 \bx{ %0.7.6
-    \eah{
+    \eah*{
         \item Solve $x^2 + ix = -1$.
         \item Solve $x^4 + x^2 + 1 = 0$
     }
@@ -103,7 +162,7 @@
 }
 
 \bx{ %0.7.8
-    \eah{
+    \eah*{
         \item Solve $x^2 + 2ix - 1 = 0$.
         \item Solve $x^3 - x^2 - x = 2$.
     }
