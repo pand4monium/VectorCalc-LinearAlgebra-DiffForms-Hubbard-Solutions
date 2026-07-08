@@ -172,12 +172,139 @@
         \]
     }
 }
-
+\pagebreak
 \bx{ %0.7.7
     Describe the set of all complex number $z = x + iy$ such that 
     \eah{
         \item $|z - u| + |z - v| = c$ for $u,v \in \mathbb C$ and $c \in \R$
         \item $|z| < 1 - \mathrm{Re} \ z$
+    }
+    \sol{\ea{
+        \item By properties of conic sections, this set represents an ellipse with the foci of $u$ and $v$ on the Argand Diagram. However, we will need to prove this rigorously with the correct conditions. Let $S = \{ z \in C: |z-u| + |z-v| = c \text{ for } u , v \in \C \text{ and } c \in R \}$.
+        
+        By Triangle Inequality, 
+        \[
+        |z-u| + |z-v| \ge |u-v|
+        \]
+        Hence we have to consider the 3 cases, $c < |u - v|$, $c=|u-v|$ and $c > |u-v|$.
+
+        \textbf{Case 1:} Suppose $c < |u-v|$. By triangle Inequality, we get $|z-u|+|z-v| > c$, which suggest there does not exists any $z \in \C$ that satisfy the set. Hence, $S = \emptyset$.
+
+        \textbf{Case 2:} Suppose $c = |u-v|$. The equality is achieved in the Triangle Inequality, hence, $z$, $u$ and $v$ must be collinear with the condition that $z-u$ and $v -z$ must be positive scalar
+        multiples of each other. Hence, $S$ is a line on the Argand Diagram connecting $u$ and $v$. To express this formally, we get 
+        \[
+        S = \{ z = u + t(v-u): t \in [0,1] \}
+        \]
+
+        \textbf{Case 3:} Suppose $c > |u-v|$. This case is the most difficult to prove. Before we begin, let us recall the geometric representation of addition and multiplication of complex numbers. 
+        Substituting $z$ with $z + c$ caused the point in the Argand diagram to move $\mathrm{Im} \ c$ units downwards and $\mathrm{Re} \ c$ units leftwards. Substituting $z$ with $z e^{i \theta}$ causes the point to rotate $\theta$ radians clockwise.
+
+        Let $\sigma_1$ be a transformation substituting $z$ with $z + w$, $(z \rightarrow z + w)$, where $w = (u+v)/2$, this results in a new set 
+        \begin{align*}
+        S_1 = \sigma_1 S 
+        &= \{ z \in \C: \left|z - \frac v2 + \frac u2\right| + \left|z -\frac u2 + \frac v2\right| = c \text{ for } u,v\in\C, c \in \R \} \\
+        &= \{ z \in \C: \left|z - u_1\right| + \left|z -v_1\right| = c \text{ for } u,v\in\C, c \in \R \}
+        \end{align*}
+
+        Without loss of generality, suppose $\mathrm{Re} \ u_1 > \mathrm{Re} \ v_1$. Let $\theta = \arg (u_1 -v_1)$ and $\sigma_2$ be the transformation substituting $z$ with $z e^{i\theta}$, 
+        ie,$(z \rightarrow ze^{i\theta})$. This gives us a new set 
+        \begin{align*}
+        S_2 = \sigma_2 S_1 &= \{ z \in \C: \left|ze^{i\theta} - u_1\right| + \left|ze^{i\theta} -v_1\right| = c \text{ for } u,v\in\C, c \in \R \} \\
+        & \{ z \in \C: |e^{i\theta}|\left|z - u_1 e^{-i\theta}\right| + |e^{i\theta}| \left|z -v_1 e^{-i\theta}\right| = c \text{ for } u,v\in\C, c \in \R \} \\
+        & \{ z \in \C: \left|z - k \right| + \left|z + k\right| = c \text{ for } u,v\in\C, c \in \R \}
+        \end{align*}
+        Since both points now lie on real axis and are equidistant to the origin, we can substitute them for $k$ and $-k$.
+
+        Now we have to show that this set is an ellipse.
+        \begin{align*}
+        |z-k|+|z+k|&=c\\
+        \sqrt{(x+k)^2+y^2}+\sqrt{(x-k)^2+y^2}&=c\\
+        \sqrt{(x+k)^2+y^2}
+        &=c-\sqrt{(x-k)^2+y^2}\\
+        (x+k)^2+y^2
+        &=c^2-2c\sqrt{(x-k)^2+y^2}+(x-k)^2+y^2\\
+        4kx
+        &=c^2-2c\sqrt{(x-k)^2+y^2}\\
+        2c\sqrt{(x-k)^2+y^2}
+        &=c^2-4kx\\
+        4c^2\bigl((x-k)^2+y^2\bigr)
+        &=(c^2-4kx)^2\\
+        4c^2(x^2-2kx+k^2+y^2)
+        &=c^4-8c^2kx+16k^2x^2\\
+        4c^2x^2+4c^2y^2+4c^2k^2
+        &=c^4+16k^2x^2\\
+        4(c^2-4k^2)x^2+4c^2y^2
+        &=c^2(c^2-4k^2).
+        \end{align*}
+        
+
+        \item Let $z = a + ib$, then
+        \begin{align*}
+        |z| &< 1 - \mathrm{Re}\,z \\
+        \sqrt{a^2+b^2} &< 1-a \implies a<1, \\
+        a^2+b^2 &< (1-a)^2 \\
+        b^2 &< 1-2a \\
+        a &< \frac{1-b^2}{2}.
+        \end{align*}
+
+        This results in the region to the left of the parabola
+        \[
+        a=\frac{1-b^2}{2},
+        \]
+        which has focus $(0,0)$ and directrix $a=1$, as shown below.
+
+        \begin{figure}[H]
+        \centering
+        \begin{tikzpicture}
+        \begin{axis}[
+            axis lines=center,
+            xlabel={$\mathrm{Re}\,z$},
+            ylabel={$\mathrm{Im}\,z$},
+            xmin=-5, xmax=5,
+            ymin=-5, ymax=5,
+        ]
+
+        \addplot[
+            name path=upper,
+            domain=-5:0.5,
+            samples=200,
+            draw=none
+        ]
+        {sqrt(1-2*x)};
+
+        \addplot[
+            name path=lower,
+            domain=-5:0.5,
+            samples=200,
+            draw=none
+        ]
+        {-sqrt(1-2*x)};
+
+        \addplot[
+            fill=blue!20,
+            opacity=0.6,
+            draw=none
+        ]
+        fill between[of=upper and lower];
+
+        \addplot[domain=-5:0.5, samples=200, blue, thick]
+        {sqrt(1-2*x)};
+
+        \addplot[domain=-5:0.5, samples=200, blue, thick]
+        {-sqrt(1-2*x)};
+
+        \addplot[red, thick] coordinates {(1,-5) (1,5)};
+
+        \node[blue] at (axis cs:-2,3.3) {$a<\frac{1-b^2}{2}$};
+        \node[right,red] at (axis cs:1,1) {$a=1$};
+        \addplot[only marks, mark=*, red] coordinates {(0,0)};
+        \node[above left,red] at (axis cs:0,0) {$(0,0)$};
+
+        \end{axis}
+        \end{tikzpicture}
+        \caption{Region satisfying $\{z\in\mathbb{C}:|z|<1-\mathrm{Re}\,z\}$.}
+        \end{figure}
+    }
     }
 }
 

@@ -6,9 +6,15 @@
 \usepackage[autostyle, english=british]{csquotes}
 \usepackage[inline]{enumitem} % enable enumeration
 \usepackage{fancyhdr}
+\usepackage{float}
 \PassOptionsToPackage{hyphens}{url}\usepackage{hyperref} % allow for URL wrapping
 \usepackage{mathtools} % For cases environment
 \usepackage[standard]{ntheorem}
+\usepackage{pgfplots}
+\usepackage{tikz}
+
+\usetikzlibrary{intersections}
+\usepgfplotslibrary{fillbetween}
 
 
 % Formatting of Text
@@ -36,14 +42,14 @@
 \NewDocumentCommand{\eah}{s m}{%
     \IfBooleanTF{#1}
         {%
-            \begin{enumerate*}[label=\alph*.]
+            \begin{enumerate*}[label=\alph*., itemjoin=\hspace{1.5em}]
                 #2
             \end{enumerate*}
         }
         {%
             {%
             \begin{center}
-                \begin{enumerate*}[label=\alph*.]
+                \begin{enumerate*}[label=\alph*., itemjoin=\hspace{1.5em}]
                     #2
                 \end{enumerate*}
             \end{center}
@@ -80,3 +86,4 @@
 % Typing Shortcuts
 \newcommand{\R}{\mathbb R}
 \newcommand{\N}{\mathbb N}
+\newcommand{\C}{\mathbb C}
