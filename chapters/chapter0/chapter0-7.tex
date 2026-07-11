@@ -610,7 +610,7 @@
     }
 }
 
-Before beginning Exercise 0.7.11 and 0.7.12, let $z = x + iy$ and $z^2 = u + iv$, then $u = x^2 -y^2$ and $v = 2xy$.
+\noindent \textbf{Note: }Before beginning Exercise 0.7.11 and 0.7.12, let $z = x + iy$ and $z^2 = u + iv$, then $u = x^2 -y^2$ and $v = 2xy$.
 
 \bx{ % 0.7.11
     \ea{
@@ -658,6 +658,43 @@ Before beginning Exercise 0.7.11 and 0.7.12, let $z = x + iy$ and $z^2 = u + iv$
         }
         \item What is the image of each locus under the mapping $z \mapsto z^2$?
         \item What is the inverse image of each locus under the mapping $z \mapsto z^2$?
+    }
+    \sol{
+        \ea{
+            \item \er{
+                \item Substituting $z = x + iy$, we get
+                \[
+                y = - \sqrt{x^2 + y^2} \implies (-y)^2 = x^2 + y^2 \ (y \le 0) \implies x = 0
+                \]
+                Hence the set is a non-positive imaginary axis.
+
+                \item Comparing real and imaginary coefficients, we get
+                \begin{align*}
+                    \begin{cases}
+                    \mathrm{Re} \ \left( \frac12 |z-i| \right) = \mathrm{Re} \ z \\
+                    \mathrm{Im} \ \left( \frac12 |z-i| \right) = \mathrm{Im} \ z
+                    \end{cases}
+                    &\implies
+                    \begin{cases}
+                    \sqrt{x^2 + (y-1)^2} = 2x \\
+                    y = 0
+                    \end{cases} \\ 
+                    &\implies 
+                    x^2 + 1 = 4x^2 \implies x = \frac{1}{\sqrt 3} \because x \ge 0
+                \end{align*}
+                Hence the set is a single point at $\left(\frac1{\sqrt 3}\right)$.
+            }
+            
+            \item \er{
+                \item Since $z = -yi$ for $y \in \R^+_0$, we get $z^2 = -y^2$, which is the non positive real axis.
+                \item $\displaystyle z^2 = \left(\frac{1}{\sqrt3}\right)^2 =  \frac 13$.
+            }
+            
+            \item \er{
+                \item Finding the inverse mapping is simple considering the argument, and hence the proof left as an exercise to the reader. The inverse map is $\{ x -ix: x\in \R\}$.
+                \item This is the points $\pm\frac{1}{\sqrt[4]3}$.
+            }
+        }
     }
 }
 
