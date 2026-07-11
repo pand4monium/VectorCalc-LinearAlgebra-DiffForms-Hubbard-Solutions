@@ -236,7 +236,148 @@
         4(c^2-4k^2)x^2+4c^2y^2
         &=c^2(c^2-4k^2).
         \end{align*}
+
+        \begin{figure}[H]
+        \centering
+        % Parametrs
+        \pgfmathsetmacro{\a}{3}
+        \pgfmathsetmacro{\b}{2}
+        \pgfmathsetmacro{\k}{2}
+        \pgfmathsetmacro{\theta}{30}
+        \pgfmathsetmacro{\Rew}{1}
+        \pgfmathsetmacro{\Imw}{0.8}
+        \pgfmathsetmacro{\width}{0.4}
+
+        %=========
+        % 1 . Ellipse
+        %=========
+        \begin{tikzpicture}
+            \begin{axis}[
+                axis lines = center,
+                xlabel= $\mathrm{Re} \ z$,
+                ylabel= $\mathrm{Im} \ z$,
+                xmin=-5, xmax=5,
+                ymin=-5, ymax=5,
+                width=\width \linewidth,
+            ]
+
+            % Ellipse
+            \addplot[
+                domain=0:360,
+                blue,
+                thick,
+                samples = 200,
+            ] ({\a * cos(x)}, {\b * sin(x)});
+
+            \node[above] at (axis cs: -\k, \b) {$S_2$};
+
+            % Focus Points
+            \addplot[only marks, mark=*, red] coordinates {
+                (-\k, 0) 
+                (\k, 0)
+            };
+
+            \node[above] at (axis cs: -\k, 0) {$v_2$};
+            \node[above] at (axis cs: \k, 0) {$u_2$};
         
+            \end{axis}
+        \end{tikzpicture}
+        %==========================
+        % 2. Rotated ellipse
+        %==========================
+        \begin{tikzpicture}
+        \begin{axis}[
+                axis lines = center,
+                xlabel= $\mathrm{Re} \ z$,
+                ylabel= $\mathrm{Im} \ z$,
+                xmin=-5, xmax=5,
+                ymin=-5, ymax=5,
+                width=\width \linewidth,
+            ]
+
+        \addplot[
+            domain=0:360,
+            blue,
+            thick,
+            samples = 200,
+        ]
+        ({\a*cos(x)*cos(\theta)-\b*sin(x)*sin(\theta)},
+        {\a*cos(x)*sin(\theta)+\b*sin(x)*cos(\theta)});
+
+        \addplot[
+            only marks,
+            mark=*,
+            red,
+        ]
+        coordinates {
+        ({-\k*cos(\theta)},{-\k*sin(\theta)})
+        ({ \k*cos(\theta)},{ \k*sin(\theta)})
+        };
+
+        \node[right]
+        at (axis cs:{-\k*cos(\theta)},{-\k*sin(\theta)})
+        {$v_1$};
+
+        \node[left]
+        at (axis cs:{\k*cos(\theta)},{\k*sin(\theta)})
+        {$u_1$};
+
+        \node[above left]
+        at (axis cs:-1, \b)
+        {$S_1$};
+
+        \end{axis}
+        \end{tikzpicture}
+        %==========================
+        % 3. Original ellipse
+        %==========================
+        \begin{tikzpicture}
+        \begin{axis}[
+                axis lines = center,
+                xlabel= $\mathrm{Re} \ z$,
+                ylabel= $\mathrm{Im} \ z$,
+                xmin=-5, xmax=5,
+                ymin=-5, ymax=5,
+                width=\width \linewidth,
+            ]
+
+        \addplot[
+            domain=0:360,
+            blue,
+            thick,
+            samples = 200,
+        ]
+        ({\a*cos(x)*cos(\theta)-\b*sin(x)*sin(\theta)+\Rew},
+        {\a*cos(x)*sin(\theta)+\b*sin(x)*cos(\theta)+\Imw});
+
+        \addplot[
+            only marks,
+            mark=*,
+            red,
+        ]
+        coordinates {
+        ({\Rew-\k*cos(\theta)},{\Imw-\k*sin(\theta)})
+        ({\Rew+\k*cos(\theta)},{\Imw+\k*sin(\theta)})
+        };
+
+        \node[above]
+        at (axis cs:{\Rew-\k*cos(\theta)},{\Imw-\k*sin(\theta)})
+        {$v$};
+
+        \node[left]
+        at (axis cs:{\Rew+\k*cos(\theta)},{\Imw+\k*sin(\theta)})
+        {$u$};
+
+        \node[above left]
+        at (axis cs:-1, \b)
+        {$S$};
+
+        \end{axis}
+        \end{tikzpicture}
+
+        \end{figure}
+
+        Lastly, with reference to the diagram, we find the inverse of the transformation, finding a rotated ellipse with the foci of $u$ and $v$.
 
         \item Let $z = a + ib$, then
         \begin{align*}
