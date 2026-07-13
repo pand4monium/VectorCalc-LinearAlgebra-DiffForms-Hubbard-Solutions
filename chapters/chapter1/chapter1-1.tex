@@ -189,14 +189,247 @@
     \task $\defvF{x \\ y}{x-y \\ x+y}$
     \task $\defvF{x \\ y}{x^2-y-1 \\ x-y}$
     }
-}
+    \sol{
+        \eag{3}{
+            \task\
+            \begin{minipage}{0.5\linewidth}
+                \centering
+                \begin{tikzpicture}[scale=0.5]
+                    \begin{axis}[
+                        view={0}{90},
+                        xlabel = {$x$},
+                        ylabel = {$y$},
+                        xmin = -3, xmax = 3,
+                        ymin = -3, ymax = 3,
+                    ]
 
+                    \addplot3[blue, quiver={u=0, v=y, scale arrows=0.3}, samples=16, -latex] (x,y,0);
+
+                    \end{axis}
+                \end{tikzpicture}
+            \end{minipage}
+
+            \task\
+            \begin{minipage}{0.5\linewidth}
+                \centering
+                \begin{tikzpicture}[scale=0.5]
+                    \begin{axis}[
+                        view={0}{90},
+                        xlabel = {$x$},
+                        ylabel = {$y$},
+                        xmin = -3, xmax = 3,
+                        ymin = -3, ymax = 3,
+                    ]
+
+                    \addplot3[blue, quiver={u=x, v=0, scale arrows=0.3}, samples=16, -latex] (x,y,0);
+
+                    \end{axis}
+                \end{tikzpicture}
+            \end{minipage}
+
+            \task\
+            \begin{minipage}{0.5\linewidth}
+                \centering
+                \begin{tikzpicture}[scale=0.5]
+                    \begin{axis}[
+                        view={0}{90},
+                        xlabel = {$x$},
+                        ylabel = {$y$},
+                        xmin = -3, xmax = 3,
+                        ymin = -3, ymax = 3,
+                    ]
+
+                    \addplot3[blue, quiver={u=x, v=y, scale arrows=0.3}, samples=16, -latex] (x,y,0);
+
+                    \end{axis}
+                \end{tikzpicture}
+            \end{minipage}
+
+            \task\
+            \begin{minipage}{0.5\linewidth}
+                \centering
+                \begin{tikzpicture}[scale=0.5]
+                    \begin{axis}[
+                        view={0}{90},
+                        xlabel = {$x$},
+                        ylabel = {$y$},
+                        xmin = -3, xmax = 3,
+                        ymin = -3, ymax = 3,
+                    ]
+
+                    \addplot3[blue, quiver={u=x, v=-y, scale arrows=0.3}, samples=16, -latex] (x,y,0);
+
+                    \end{axis}
+                \end{tikzpicture}
+            \end{minipage}
+
+            \task\
+            \begin{minipage}{0.5\linewidth}
+                \centering
+                \begin{tikzpicture}[scale=0.5]
+                    \begin{axis}[
+                        view={0}{90},
+                        xlabel = {$x$},
+                        ylabel = {$y$},
+                        xmin = -3, xmax = 3,
+                        ymin = -3, ymax = 3,
+                    ]
+
+                    \addplot3[blue, quiver={u=y, v=x, scale arrows=0.3}, samples=16, -latex] (x,y,0);
+
+                    \end{axis}
+                \end{tikzpicture}
+            \end{minipage}
+
+            \task\
+            \begin{minipage}{0.5\linewidth}
+                \centering
+                \begin{tikzpicture}[scale=0.5]
+                    \begin{axis}[
+                        view={0}{90},
+                        xlabel = {$x$},
+                        ylabel = {$y$},
+                        xmin = -3, xmax = 3,
+                        ymin = -3, ymax = 3,
+                    ]
+
+                    \addplot3[blue, quiver={u=-y, v=x, scale arrows=0.3}, samples=16, -latex] (x,y,0);
+
+                    \end{axis}
+                \end{tikzpicture}
+            \end{minipage}
+
+            \task\
+            \begin{minipage}{0.5\linewidth}
+                \centering
+                \begin{tikzpicture}[scale=0.5]
+                    \begin{axis}[
+                        view={0}{90},
+                        xlabel = {$x$},
+                        ylabel = {$y$},
+                        xmin = -3, xmax = 3,
+                        ymin = -3, ymax = 3,
+                    ]
+
+                    \addplot3[blue, quiver={u=y, v=x-y, scale arrows=0.3}, samples=16, -latex] (x,y,0);
+
+                    \end{axis}
+                \end{tikzpicture}
+            \end{minipage}
+
+            \task\
+            \begin{minipage}{0.5\linewidth}
+                \centering
+                \begin{tikzpicture}[scale=0.5]
+                    \begin{axis}[
+                        view={0}{90},
+                        xlabel = {$x$},
+                        ylabel = {$y$},
+                        xmin = -3, xmax = 3,
+                        ymin = -3, ymax = 3,
+                    ]
+
+                    \addplot3[blue, quiver={u=x-y, v=x+y, scale arrows=0.3}, samples=16, -latex] (x,y,0);
+
+                    \end{axis}
+                \end{tikzpicture}
+            \end{minipage}
+
+            \task\
+            \begin{minipage}{0.5\linewidth}
+                \centering
+                \begin{tikzpicture}[scale=0.5]
+                    \begin{axis}[
+                        view={0}{90},
+                        xlabel = {$x$},
+                        ylabel = {$y$},
+                        xmin = -3, xmax = 3,
+                        ymin = -3, ymax = 3,
+                    ]
+
+                    \addplot3[blue, quiver={u=x^2-y-1, v=x-y, scale arrows=0.1}, samples=16, -latex] (x,y,0);
+
+                    \end{axis}
+                \end{tikzpicture}
+            \end{minipage}
+        }
+    }
+}
+\pagebreak
 \bx{ % 1.1.7
     Sketch the following vector fields:
     \eag{3}{
     \task $\defvF{x \\ y \\ z}{0 \\ 0 \\ x^2+y^2}$
     \task $\defvF{x \\ y \\ z}{y \\ -x \\ -z}$
     \task $\defvF{x \\ y \\ z}{x-y \\ x+y \\ -z}$
+    }
+    \sol{
+        \eag{1}{
+            \task\
+            \begin{minipage}{0.5\linewidth}
+                \centering
+                \begin{tikzpicture}[scale=1]
+                    \begin{axis}[
+                        view = {35}{15},
+                        xlabel = {$x$},
+                        ylabel = {$y$},
+                        xmin = -3, xmax = 3,
+                        ymin = -3, ymax = 3,
+                        zmin = -3, zmax = 3,
+                    ]
+                    
+                    \foreach \zz in {-3, -1.5, 0, 1.5, 3}{
+                        \addplot3[blue, quiver={u=0, v=0, w=x^2+y^2, scale arrows=0.05}, samples=10, -latex] (x,y,\zz);
+                    }
+
+                    \end{axis}
+                \end{tikzpicture}
+            \end{minipage}
+
+            \task\
+            \begin{minipage}{0.5\linewidth}
+                \centering
+                \begin{tikzpicture}[scale=1]
+                    \begin{axis}[
+                        view = {35}{15},
+                        xlabel = {$x$},
+                        ylabel = {$y$},
+                        xmin = -3, xmax = 3,
+                        ymin = -3, ymax = 3,
+                        zmin = -3, zmax = 3,
+                    ]
+                    
+                    \foreach \zz in {-3, -1.5, 0, 1.5, 3}{
+                        \addplot3[blue, quiver={u=y, v=-x, w=-z, scale arrows=0.05}, samples=10, -latex] (x,y,\zz);
+                    }
+
+                    \end{axis}
+                \end{tikzpicture}
+            \end{minipage}
+
+            \task\
+            \begin{minipage}{0.5\linewidth}
+                \centering
+                \begin{tikzpicture}[scale=1]
+                    \begin{axis}[
+                        view = {35}{15},
+                        xlabel = {$x$},
+                        ylabel = {$y$},
+                        xmin = -3, xmax = 3,
+                        ymin = -3, ymax = 3,
+                        zmin = -3, zmax = 3,
+                    ]
+                    
+                    \foreach \zz in {-3, -1.5, 0, 1.5, 3}{
+                        \addplot3[blue, quiver={u=x-y, v=x+y, w=-z, scale arrows=0.05}, samples=10, -latex] (x,y,\zz);
+                    }
+
+                    \end{axis}
+                \end{tikzpicture}
+            \end{minipage}
+
+
+        }
     }
 }
 
@@ -206,7 +439,16 @@
         \item Write a vector field describing the flow if the pipe is the direction of the $z$-axis.
         \item Write the vector field describing the flow if the axis of the pipe is the unit circle in the $(x, y)$-plane
     }
-}
+
+    \sol{
+        Due to constraints, the vector fields will not be drawn. \\
+        \eah*{
+            \item $\defvF{x \\ y \\ z}{0 \\ 0 \\ r^2 - x^2 - y^2}$
+            \item $\vF \pmat{x \\ y \\ z} = \left( r^2 - \left( \left(\sqrt{x^2 + y^2} - 1\right)^2 + z^2 \right)\right)  \bmat{-\frac{y}{\sqrt{x^2+y^2}} \\ \frac{x}{\sqrt{x^2+y^2}} \\ 0}$
+            }
+        }
+    }
+
 
 \bx{ % 1.1.9
     Show that the set of complex numbers $\{z|\mathrm{Re}(wz) = 0\}$ with fixed $w\in\C$ is a subspace of $\R^2 = \C$. Describe this subspace.
