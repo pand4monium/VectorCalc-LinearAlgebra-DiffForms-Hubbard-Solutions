@@ -79,6 +79,7 @@
 
 \newcommand{\eag}[2]{%
 \begin{tasks}(#1)
+    \AtBeginEnvironment{tikzpicture}{\tikzset{baseline=(current bounding box.north)}}
 #2
 \end{tasks}
 }
@@ -88,3 +89,7 @@
 \newcommand{\R}{\mathbb R}
 \newcommand{\N}{\mathbb N}
 \newcommand{\C}{\mathbb C}
+
+\newcommand{\bmat}[1]{\begin{bmatrix} #1 \end{bmatrix}}
+\newcommand{\pmat}[1]{\begin{pmatrix} #1 \end{pmatrix}}
+
