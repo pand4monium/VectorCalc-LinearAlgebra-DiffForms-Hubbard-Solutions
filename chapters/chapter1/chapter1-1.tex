@@ -452,4 +452,13 @@
 
 \bx{ % 1.1.9
     Show that the set of complex numbers $\{z|\mathrm{Re}(wz) = 0\}$ with fixed $w\in\C$ is a subspace of $\R^2 = \C$. Describe this subspace.
+    \sol{
+        Let $S = \{z|\mathrm{Re} (wz) = 0\}$. We will first show that it is closed under addition and scalar multiplications. Firstly, $0 \in S$ since $\mathrm{Re}(w \cdot 0) = \mathrm{Re}(0) = 0$. Hence the subspace is non-empty. 
+        
+        Next, let $c \in \R$ and $x,y\in S$. We will show that $cx + y \in S$. 
+        \[
+        \mathrm{Re}((cx+y)w) = c\mathrm{Re}(xw) + \mathrm{Re}(yw) = c(0) + 0 = 0
+        \]
+        And we are done.
+    }
 }
