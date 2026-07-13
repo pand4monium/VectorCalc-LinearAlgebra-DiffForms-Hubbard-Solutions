@@ -704,15 +704,90 @@
         \item Find all the $4$th roots of $1$.
         \item Find all the $6$th roots of $1$.
     }
+    \sol{
+        The answers to these are simple using the De Moivre's formula.
+        \ea{
+            \item $1 ^ {1/3} = (e^{2\pi k i })^{1/3}$ for $k = 0, 1,2$. Hence, the roots are
+            \[
+            1, e^{i \frac{2 \pi}3}, e^{-i \frac{2 \pi}3}
+            \]
+            \item Similarly, the roots are $ \pm 1$ and $\pm i$.
+            \item Similarly, the roots are $\pm 1$, $e^{\pm i \frac{\pi}3}$ and $e^{\pm i \frac{2\pi}3}$.
+        }
+    }
 }
 
 \bx{ % 0.7.14
     Show that for any complex numbers $z_1, z_2$, we have $\mathrm{Im}(\bar{z_1} z_2) \le |z_1||z_2|$.
+    \sol{
+        It is obvious that $\mathrm{Im} (\bar z_1 z_2) \ge |z_1 | |z_2|$ can be rewritten as $\mathrm{Im} (z_1 z_2) \ge |z_1 z_2|$ since $|z_1| = |\bar z_1|$.
+
+        Then we get 
+        \[
+        |z_1 z_2| = | \mathrm{Re} (z_1z_2) + i \mathrm{Im} (z_1z_2) | \ge |\mathrm{Re} (z_1z_2)|  + |\mathrm{Im} (z_1z_2)| \ge |\mathrm{Im} (z_1z_2) | \ge \mathrm{Im} (z_1z_2)
+        \]
+        and we are done.
+        
+    }
 }
 
 \bx{ % 0.7.15
     \ea{
-        \item Find all the fifth roots of 1, using a formula that only includes square roots (no trigonometric function).
+        \item Find all the fifth roots of $1$, using a formula that only includes square roots (no trigonometric function).
         \item Use your formula, ruler, and compass to construct a regular pentagon.
+    }
+    \sol{
+        \ea{
+            \item Note that the fifth roots of $1$ satisfy the equation
+            \[
+            z^5 - 1 = 0,
+            \]
+            and we know that $z-1$ is a factor since $1$ is a solution.
+            \[
+            z^5 - 1 = (z-1)(z^4+z^3+z^2+z+1)=0.
+            \]
+            Excluding the solution $z=1$, divide by $z^2$ to obtain
+            \begin{align*}
+                z^2+z+1+\frac1z+\frac1{z^2} &= 0 \\
+                \left(z^2+2+\frac1{z^2}\right)+\left(z+\frac1z\right)-1 &= 0 \\
+                \left(z+\frac1z\right)^2+\left(z+\frac1z\right)-1 &= 0 \\ 
+                z+\frac1z & =\frac{-1\pm\sqrt5}{2}
+            \end{align*}
+            Hence,
+            \pagebreak
+            We now solve for $z$.
+
+            If
+            $
+            z+\frac1z=\frac{-1+\sqrt5}{2},
+            $
+            then
+            \begin{align*}
+                z^2-\frac{-1+\sqrt5}{2}z+1 &= 0 \\
+                z &= \frac{\frac{-1+\sqrt5}{2}\pm\sqrt{\left(\frac{-1+\sqrt5}{2}\right)^2-4}}{2} \\
+                  &= \frac{-1+\sqrt5\pm i\sqrt{10+2\sqrt5}}{4}.
+            \end{align*}
+
+            If
+            $
+            z+\frac1z=\frac{-1-\sqrt5}{2},
+            $
+            then
+            \begin{align*}
+                z^2-\frac{-1-\sqrt5}{2}z+1 &= 0 \\
+                z &= \frac{\frac{-1-\sqrt5}{2}\pm\sqrt{\left(\frac{-1-\sqrt5}{2}\right)^2-4}}{2} \\
+                  &= \frac{-1-\sqrt5\pm i\sqrt{10-2\sqrt5}}{4}.
+            \end{align*}
+
+            Together with $z=1$, the five fifth roots of unity are
+            \[
+            1,\quad
+            \frac{-1+\sqrt5 \pm i\sqrt{10+2\sqrt5}}{4},\quad
+            \frac{-1-\sqrt5 \pm i\sqrt{10-2\sqrt5}}{4}.
+            \]
+
+            \item \TODO
+            
+        }
     }
 }
